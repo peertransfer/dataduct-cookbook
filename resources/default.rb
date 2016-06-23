@@ -4,6 +4,8 @@ property :python_runtime_version, String, default: '2'
 property :mysql_dev_package, String, default: 'libmysqlclient-dev'
 property :postgres_dev_package, String, default: 'libpq-dev'
 
+default_action :install
+
 action :install do
   include_recipe 'build-essential'
 
