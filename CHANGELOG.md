@@ -3,9 +3,19 @@ dataduct CHANGELOG
 
 This file is used to list changes made in each version of the dataduct cookbook.
 
+unreleased
+----------
+
+- Update README
+
+0.1.1
+-----
+
+- Add default action in default resource
+
 0.1.0
 -----
-- [your_name] - Initial release of dataduct
+- Initial release of dataduct
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
