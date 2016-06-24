@@ -56,6 +56,7 @@ Contributing
 
 License and Authors
 -------------------
+
 Authors:
   - Vicente Dominguez <vicendominguez@users.noreply.github.com>
   - Jose Luis Salas <josacar@users.noreply.github.com>
