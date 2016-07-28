@@ -2,7 +2,7 @@ require_relative '../spec_helper'
 
 describe 'dataduct-test::default' do
   cached(:subject) do
-    runner = ChefSpec::SoloRunner.new(step_into: ['dataduct'])
+    runner = ChefSpec::SoloRunner.new(step_into: %w(dataduct dataduct_config))
     runner.converge(described_recipe)
   end
   let(:node) { subject.node }
@@ -19,5 +19,25 @@ describe 'dataduct-test::default' do
   it 'installs requests and dataduct python packages' do
     is_expected.to install_python_package('requests')
     is_expected.to install_python_package('dataduct')
+  end
+
+  it 'creates config with specified values' do
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('INSTANCE_TYPE: m3.xlarge')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('ETL_AMI: ami-4d089d5a')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('SECURITY_GROUP_ID: sg-ojete')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('SUBNET_ID: subnet-calor')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('S3_ETL_BUCKET: bucket-molon')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('ROLE: DataPipelineRole')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('RESOURCE_ROLE: datapipe')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('S3_BASE_PATH: staging')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('HOST: almendra')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('PASSWORD: secure_password')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('USERNAME: mysql_user')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('CLUSTER_ID: funny_cluster_name')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('DATABASE_NAME: funny_database_name')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('HOST: redshift_hostname')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('PASSWORD: supersecureredshiftpassword')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('USERNAME: redshiftuser')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('S3_BASE_PATH: staging')
   end
 end
