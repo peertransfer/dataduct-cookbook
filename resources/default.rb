@@ -25,17 +25,3 @@ action :install do
   python_package 'dataduct'
   python_package 'requests'
 end
-
-action :config do
-  template '/etc/dataduct.cfg' do
-    source 'dataduct.cfg.erb'
-    user 'root'
-    group 'root'
-    mode '600'
-    variables(
-      ec2_instance_type: ec2_instance_type,
-      ec2_ami: ec2_ami,
-      ec2_security_group_id: ec2_security_group_id
-    )
-  end
-end
