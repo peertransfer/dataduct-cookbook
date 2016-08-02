@@ -1,0 +1,19 @@
+language: ruby
+cache: bundler
+sudo: false
+
+before_install:
+  - gem install bundler
+
+rvm:
+  - 2.2
+
+bundler_args: --jobs 7 --retry 3
+
+gemfile: ./Gemfile
+
+env:
+  - CHEF_VERSION=12.8.1
+
+script:
+  - "bundle exec rspec'
