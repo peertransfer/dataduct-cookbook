@@ -5,3 +5,5 @@ gem 'kitchen-inspec', require: false
 gem 'test-kitchen', require: false
 gem 'kitchen-dokken', require: false
 gem 'berkshelf', '~> 4.3', require: false
+
+gem 'stove'
