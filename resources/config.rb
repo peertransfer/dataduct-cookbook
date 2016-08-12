@@ -32,6 +32,8 @@ property :redshift_password, String
 
 property :redshift_user, String
 
+property :cookbook, String, default: 'dataduct'
+
 default_action :create
 
 action :create do
@@ -58,5 +60,6 @@ action :create do
       resource_role: resource_role,
       s3_base_path: s3_base_path
     )
+    cookbook new_resource.cookbook
   end
 end
