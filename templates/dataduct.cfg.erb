@@ -17,7 +17,7 @@ etl:
     S3_BASE_PATH: <%= @s3_base_path  %>
 
 mysql:
-    replicastaging-vpc:
+    <%= @mysql_host_id %>:
         HOST: <%= @mysql_host %>
         PASSWORD: <%= @mysql_password %>
         USERNAME: <%= @mysql_username %>

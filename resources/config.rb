@@ -16,6 +16,8 @@ property :resource_role, String
 
 property :s3_base_path, String
 
+property :mysql_host_id, String
+
 property :mysql_host, String
 
 property :mysql_password, String
@@ -31,6 +33,8 @@ property :redshift_host, String
 property :redshift_password, String
 
 property :redshift_user, String
+
+
 
 property :cookbook, String, default: 'dataduct'
 
@@ -48,6 +52,7 @@ action :create do
       redshift_cluster_name: redshift_cluster_name,
       redshift_database_name: redshift_database_name,
       redshift_host: redshift_host,
+      mysql_host_id: mysql_host_id,
       mysql_host: mysql_host,
       mysql_username: mysql_username,
       mysql_password: mysql_password,

@@ -11,6 +11,7 @@ dataduct_config 'default' do
   s3_base_path 'staging'
   etl_role 'DataPipelineRole'
   resource_role 'datapipe'
+  mysql_host_id 'mysql_host_identifier'
   mysql_host 'almendra'
   mysql_password 'secure_password'
   mysql_username 'mysql_user'

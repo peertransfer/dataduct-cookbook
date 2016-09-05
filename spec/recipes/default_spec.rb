@@ -39,5 +39,6 @@ describe 'dataduct-test::default' do
     is_expected.to render_file('/etc/dataduct.cfg').with_content('PASSWORD: supersecureredshiftpassword')
     is_expected.to render_file('/etc/dataduct.cfg').with_content('USERNAME: redshiftuser')
     is_expected.to render_file('/etc/dataduct.cfg').with_content('S3_BASE_PATH: staging')
+    is_expected.to render_file('/etc/dataduct.cfg').with_content('mysql_host_identifier')
   end
 end
