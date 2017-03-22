@@ -20,4 +20,5 @@ dataduct_config 'default' do
   redshift_host 'redshift_hostname'
   redshift_password 'supersecureredshiftpassword'
   redshift_user 'redshiftuser'
+  config_sync_from_s3 true
 end

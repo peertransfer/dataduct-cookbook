@@ -1,3 +1,11 @@
+<% if @config_sync_from_s3 -%>
+bootstrap:
+  ec2:
+    - step_type: transform
+      command: dataduct config sync_from_s3 ~/.dataduct/dataduct.cfg
+      no_output: true
+<% end -%>
+
 ec2:
     INSTANCE_TYPE: <%= @ec2_instance_type %>
     ETL_AMI: <%= @ec2_ami %> # ami-cb1693dc
