@@ -1,3 +1,5 @@
+# Chef generated dataduct.cfg
+
 <% if @config_sync_from_s3 -%>
 bootstrap:
   ec2:
@@ -23,12 +25,19 @@ etl:
     ROLE: <%= @etl_role %>
     RESOURCE_ROLE: <%= @resource_role %>
     S3_BASE_PATH: <%= @s3_base_path  %>
+<% if @sns_topic_arn_failure %>
+    SNS_TOPIC_ARN_FAILURE: <%= @sns_topic_arn_failure %>
+<% end %>
+<% if @sns_topic_arn_warning %>
+    SNS_TOPIC_ARN_WARNING: <%= @sns_topic_arn_warning %>
+<% end %>
 
 mysql:
     <%= @mysql_host_id %>:
         HOST: <%= @mysql_host %>
         PASSWORD: <%= @mysql_password %>
         USERNAME: <%= @mysql_username %>
+
 redshift:
     CLUSTER_ID: <%= @redshift_cluster_name %>
     DATABASE_NAME: <%= @redshift_database_name %>
