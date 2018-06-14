@@ -11,3 +11,6 @@ source_url 'https://github.com/peertransfer/dataduct-cookbook'
 
 depends 'build-essential'
 depends 'poise-python', '~> 1.4'
+
+chef_version '>= 12.15'
+supports 'debian'
