@@ -2,7 +2,6 @@
 driver:
   name: dokken
   privileged: true
-  chef_version: 12.7.2
 
 transport:
   name: dokken
@@ -13,14 +12,10 @@ provisioner:
 platforms:
 - name: debian
   driver_config:
-    image: debian:8.4
-    pid_one_command: /sbin/init
+    image: debian:8.9
     intermediate_instructions:
       - RUN /usr/bin/apt-get update &&
-        /usr/bin/apt-get install apt-transport-https net-tools curl openssl --yes --no-install-recommends &&
-        curl -L http://httpredir.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20130119%2bdeb7u1_all.deb -o ca-certificates_20130119+deb7u1_all.deb &&
-        dpkg -i ca-certificates_20130119+deb7u1_all.deb
-      - RUN mkdir /var/run/sshd
+          /usr/bin/apt-get install apt-transport-https net-tools curl openssl --yes --no-install-recommends
 
 verifier:
   name: inspec
@@ -31,3 +26,6 @@ suites:
   - name: default
     run_list:
       - recipe[dataduct::default]
+  - name: config
+    run_list:
+      - recipe[dataduct-test::config]

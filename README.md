@@ -7,7 +7,7 @@ Requirements
 ------------
 
 - Python runtime
-- Chef 12
+- Chef 12.15 or later
 
 Usage
 -----
@@ -38,6 +38,7 @@ dataduct 'default' do
   action :install
 end
 ```
+
 ```ruby
 dataduct_config 'default' do
   ec2_security_group_id 'sg-ojete'
